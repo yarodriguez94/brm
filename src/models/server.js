@@ -1,4 +1,4 @@
-const  express = require('express');
+const express = require('express');
 
 const router = require('../routes/users.routes');
 
@@ -10,22 +10,18 @@ class Server {
         this.port = process.env.PORT;
         this.loginRouter = '/api/login';
 
-        this.routes();
         this.middlewares();
+        this.routes();
 
     }
 
     middlewares() {
-        this.app.use( express.json() );
-        this.app.use( express.static('public'));
-        // this.app.post('/login', (req,res) => {
-        //     console.log('aqi estoy' + req.body.username);
-        // })
+        this.app.use(express.json());
+        this.app.use(express.static('public'));
     }
 
-    routes () {
-        this.app.use(this.loginRouter,require('../routes/users.routes.js'));
-        this.app.use('/createUser',router);
+    routes() {
+        this.app.use(this.loginRouter,router);
     }
 
     listen() {

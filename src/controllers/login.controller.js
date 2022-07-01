@@ -7,8 +7,9 @@
   
   // app.use( express.json() );
   // console.log(JSON.stringify(req.headers));
-  
-  resp.send(req);
+  // console.log(req.body);
+  // return;
+  resp.send(req.body);
   // try {
 
   //   console.log(req.body);
