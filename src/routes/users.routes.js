@@ -3,7 +3,7 @@ const {loginUser,createUser} = require("../controllers/login.controller");
 
 const router = Router();
 
-router.post("/",loginUser);
-// router.post('/', createUser);
+router.post("/api/login",loginUser);
+router.post('/api/createUser', createUser);
 
 module.exports = router;

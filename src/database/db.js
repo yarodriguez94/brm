@@ -1,14 +1,10 @@
-import Sequelize from "sequelize";
+const { Sequelize } = require("sequelize");
 
-export const sequelize = new Sequelize(
-    "brm_db",
-     "root",
-    "root",
-    {
-        hots:'localhost',
-        dialect:'mysql'
+const sequelize = new Sequelize("brm_db", "root", "root", {
+  hots: "localhost",
+  dialect: "mysql",
+});
 
-    }
-    );
-
-    
+module.exports = {
+  sequelize,
+};
