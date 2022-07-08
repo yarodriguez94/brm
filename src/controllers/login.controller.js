@@ -1,7 +1,8 @@
 // const  { response , request } = require('express');
 const { users } = require("../models/users.js");
 const generateJWT = require("../helpers/generate-jwt.js");
-const md5 = require("md5");
+const bcryptjs = require('bcryptjs');
+
 
 const loginUser = async (req, resp) => {
   try {
@@ -30,10 +31,11 @@ const loginUser = async (req, resp) => {
 
 const createUser = async (req, resp) => {
   try {
+
     const body = req.body;
     const userData = {
       username: body.username,
-      password: body.password,
+      password: bcryptjs.hashSync(body.password,10),
       firstname: body.firstname,
       lastname: body.lastname,
       email: body.email,
